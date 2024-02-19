@@ -11,6 +11,12 @@ const questions = [
         message: 'Please enter the title of your README',
       },
       {
+        type: 'list',
+        name: 'license',
+        message: 'Please provide the correct license for this project',
+        choices: ['MIT', 'Apache', 'Attribution 4'],
+      },
+      {
         type: 'input',
         name: 'desc',
         message: 'Please enter a description of your project',
