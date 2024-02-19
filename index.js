@@ -33,8 +33,8 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'contributor',
-        message: 'Please provide a name of a contributor',
+        name: 'contributors',
+        message: 'Please enter the name of the contributor(s) to this project',
       },
       {
         type: 'input',
