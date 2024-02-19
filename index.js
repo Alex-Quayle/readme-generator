@@ -12,29 +12,23 @@ const questions = [
       },
       {
         type: 'input',
-        message: 'Please enter a description of your project',
         name: 'desc',
+        message: 'Please enter a description of your project',
       },
       {
         type: 'input',
-        message: 'Please provide installation instructions for the project',
         name: 'install',
+        message: 'Please provide installation instructions for the project',
       },
       {
         type: 'input',
-        message: 'Please provide usage instructions for the project',
         name: 'usage',
-      },
-      {
-        type: 'list',
-        message: 'What is your preferred method of communication?',
-        name: 'contact',
-        choices: ['email', 'phone', 'telekinesis'],
+        message: 'Please provide usage instructions for the project',
       },
       {
         type: 'input',
-        message: 'Please provide a name of a contributor',
         name: 'contributor',
+        message: 'Please provide a name of a contributor',
       },
       {
         type: 'input',
@@ -60,13 +54,21 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log("Generated README");
+        }})
 }
 
 // function to initialize program
 function init() {
+    inquirer.prompt(questions)  .then((answers) => {
+        let responses = generateMarkdown(answers);
+        writeToFile('result.md', responses);
+    })
 }
 
 // function call to initialize program
 init();
-
-// ADD MARKDOWN
